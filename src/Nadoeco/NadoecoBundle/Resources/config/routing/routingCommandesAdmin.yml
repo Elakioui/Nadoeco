@@ -1,0 +1,7 @@
+adminCommandes:
+    path:     /
+    defaults: { _controller: NadoecoNadoecoBundle:CommandeAdmin:commandes }
+
+adminShowFacture:
+    path:     /facture/{id}
+    defaults: { _controller: NadoecoNadoecoBundle:CommandeAdmin:showFacture }

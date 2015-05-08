@@ -1,0 +1,39 @@
+pages:
+    path:     /
+    defaults: { _controller: "PagesPagesBundle:PagesAdmin:index" }
+
+adminPages_softDel:
+    path:     /soft/del
+    defaults: { _controller: "PagesPagesBundle:PagesAdmin:softDel" }
+
+pages_restore:
+    path:     /{id}/restore
+    defaults: { _controller: "PagesPagesBundle:PagesAdmin:restore" }
+
+
+pages_show:
+    path:     /{id}/show
+    defaults: { _controller: "PagesPagesBundle:PagesAdmin:show" }
+
+pages_new:
+    path:     /new
+    defaults: { _controller: "PagesPagesBundle:PagesAdmin:new" }
+
+pages_create:
+    path:     /create
+    defaults: { _controller: "PagesPagesBundle:PagesAdmin:create" }
+    methods:  POST
+
+pages_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PagesPagesBundle:PagesAdmin:edit" }
+
+pages_update:
+    path:     /{id}/update
+    defaults: { _controller: "PagesPagesBundle:PagesAdmin:update" }
+    methods:  [POST, PUT]
+
+pages_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PagesPagesBundle:PagesAdmin:delete" }
+    methods:  [POST, DELETE]

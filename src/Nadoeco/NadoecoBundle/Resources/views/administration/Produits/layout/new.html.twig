@@ -1,0 +1,18 @@
+{% extends '::layout/layoutAdmin.html.twig' %}
+
+{% block body -%}
+    <h1>Produits creation</h1>
+    <form action="{{ path('produits_create')}}" method="POST"  {{ form_enctype(form)  }}>
+        <div class="g-recaptcha" data-sitekey="6LeWGwQTAAAAAJU0X7yVFK9voPPo2MQAQ00hPJDf"></div>
+        <div style="color:red"> {{ form_errors(form.nom) }}</div>
+        {{ form(form) }}
+    </form>
+
+        <ul class="record_actions">
+            <li>
+                <a href="{{ path('produitsAdmin') }}">
+                        Back to the list
+                </a>
+            </li>
+        </ul>
+{% endblock %}

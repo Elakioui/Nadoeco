@@ -1,0 +1,24 @@
+services:
+    sendEmail:
+        class:  Nadoeco\NadoecoBundle\Services\SendEmail
+        arguments: [@service_container]
+    setNewFacture:
+            class:  Nadoeco\NadoecoBundle\Services\GetFacture
+            arguments: [@service_container]
+    setNewReference:
+        class:  Nadoeco\NadoecoBundle\Services\GetReference
+        arguments: [@security.context,@doctrine.orm.entity_manager]
+    tva:
+        class: Nadoeco\NadoecoBundle\Twig\Extension\TvaExtension
+        tags:
+            - { name: twig.extension }
+    montantTva:
+         class: Nadoeco\NadoecoBundle\Twig\Extension\MontantTvaExtension
+         tags:
+                - { name: twig.extension }
+    redirectListener:
+         class: Nadoeco\NadoecoBundle\Listener\RedirectionListener
+         arguments: [@service_container, @session]
+         tags:
+             - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest}
+

@@ -17,10 +17,21 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new AppBundle\AppBundle(),
+            new Nadoeco\NadoecoBundle\NadoecoNadoecoBundle(),
+            new Pages\PagesBundle\PagesPagesBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
+            new Nadoeco\UtilisateurBundle\NadoecoUtilisateurBundle(),
+            new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            new Ensepar\Html2pdfBundle\EnseparHtml2pdfBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new Liip\ImagineBundle\LiipImagineBundle(),
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
             $bundles[] = new Symfony\Bundle\DebugBundle\DebugBundle();
+            $bundles[] = new CoreSphere\ConsoleBundle\CoreSphereConsoleBundle;
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();

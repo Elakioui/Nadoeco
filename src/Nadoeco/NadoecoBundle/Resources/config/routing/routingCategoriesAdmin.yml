@@ -1,0 +1,30 @@
+categoriesAdmin:
+    path:     /
+    defaults: { _controller: "NadoecoNadoecoBundle:CategoriesAdmin:index" }
+
+categories_show:
+    path:     /{id}/show
+    defaults: { _controller: "NadoecoNadoecoBundle:CategoriesAdmin:show" }
+
+categories_new:
+    path:     /new
+    defaults: { _controller: "NadoecoNadoecoBundle:CategoriesAdmin:new" }
+
+categories_create:
+    path:     /create
+    defaults: { _controller: "NadoecoNadoecoBundle:CategoriesAdmin:create" }
+    methods:  POST
+
+categories_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "NadoecoNadoecoBundle:CategoriesAdmin:edit" }
+
+categories_update:
+    path:     /{id}/update
+    defaults: { _controller: "NadoecoNadoecoBundle:CategoriesAdmin:update" }
+    methods:  [POST, PUT]
+
+categories_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "NadoecoNadoecoBundle:CategoriesAdmin:delete" }
+    methods:  [POST, DELETE]

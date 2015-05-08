@@ -1,0 +1,15 @@
+produit:
+    path:     /
+    defaults: { _controller: NadoecoNadoecoBundle:Produits:produits }
+
+presentation:
+    path:     /produit/{id}
+    defaults: { _controller: NadoecoNadoecoBundle:Produits:presentation }
+
+categorieProduits:
+    path:     /categorie/{categorie}
+    defaults: { _controller: NadoecoNadoecoBundle:Produits:produits }
+
+rechercheProduit:
+    path:     /recherche
+    defaults: { _controller: NadoecoNadoecoBundle:Produits:rechercheTraitement }

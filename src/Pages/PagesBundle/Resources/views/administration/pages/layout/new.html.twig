@@ -1,0 +1,16 @@
+{% extends '::layout/layoutAdmin.html.twig' %}
+
+{% block body -%}
+    <h2>Ajouter une page </h2>
+    <div class="span8">
+        {{ form(form) }}
+        <ul class="record_actions">
+            <li>
+                <a href="{{ path('pages') }}">
+                   Retour
+                </a>
+            </li>
+        </ul>
+    </div>
+
+{% endblock %}

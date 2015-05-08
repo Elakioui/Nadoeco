@@ -1,0 +1,4 @@
+admin:
+    path:     /
+    defaults: { _controller: "NadoecoNadoecoBundle:CategoriesAdmin:index" }
+

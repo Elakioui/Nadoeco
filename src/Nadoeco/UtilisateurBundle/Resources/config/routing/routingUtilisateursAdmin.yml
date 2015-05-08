@@ -1,0 +1,12 @@
+adminUtilisateurs:
+    path:     /
+    defaults: { _controller: "NadoecoUtilisateurBundle:UtilisateursAdmin:index" }
+
+adminAdressesUtilisateur:
+    path:     /{id}/adresses
+    defaults: { _controller: "NadoecoUtilisateurBundle:UtilisateursAdmin:utilisateur" }
+
+adminFacturesUtilisateur:
+    path:     /{id}/factures
+    defaults: { _controller: "NadoecoUtilisateurBundle:UtilisateursAdmin:utilisateur" }
+

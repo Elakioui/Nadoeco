@@ -1,0 +1,109 @@
+{% extends '::layout/layout.html.twig' %}
+
+
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <div class="span3">
+                {% include '::moduleUsed/navigation.html.twig' %}
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    {% include 'NadoecoUtilisateurBundle:Default:moduleUsed/utilisateurConnecte.html.twig' %}
+                {% else %}
+                    {% include 'NadoecoUtilisateurBundle:Default:moduleUsed/utilisateurs.html.twig' %}
+                {% endif %}
+            </div>
+
+            <div class="span9">
+                <h2>Votre parnier</h2>
+                <form>
+                    <table class="table table-striped table-hover">
+                        <thead>
+                        <tr>
+                            <th>Références</th>
+                            <th>Quantité</th>
+                            <th>Prix unitaire</th>
+                            <th>Total HT</th>
+                        </tr>
+                        </thead>
+
+                            <tbody>
+                                {% for produit in commande.commande.produits %}
+
+                                    <tr>
+
+                                            <td>{{ produit.reference }}</td>
+                                            <td>{{ produit.quantite  }}</td>
+                                            <td>{{ produit.prixUnitaire }}€</td>
+                                            <td>{{ produit.totalHT }}€</td>
+                                    </tr>
+
+                                {% endfor %}
+                            </tbody>
+
+                    </table>
+                </form>
+
+                    <dl class="dl-horizontal pull-right">
+                        <dt>Total HT :</dt>
+                        <dd>{{ commande.commande.totalHT }} €</dd>
+                        {% for key,tva in commande.commande.tva %}
+                            <dt>Tva {{ key }} :</dt>
+                            <dd>{{ tva  }}€</dd>
+                        {% endfor %}
+
+                        <dt>Total TTC:</dt>
+                        <dd>{{ commande.commande.totalTTC }}€</dd>
+                    </dl>
+                    <div class="span3 pull-left">
+                        <dl class="pull-left" >
+                            <dl><h4>Adresse de livraison </h4></dl>
+                            <dl>
+                                {{ commande.commande.livraison.nom }} {{ commande.commande.livraison.prenom }}
+                            </dl>
+                            <dl>
+                                {{ commande.commande.livraison.adresse }}
+                            </dl>
+                            <dl>
+                                {{ commande.commande.livraison.cp }} {{ commande.commande.livraison.ville }} - {{ commande.commande.livraison.pays }}
+                            </dl>
+                        </dl>
+
+                    </div>
+
+                    <div class="span3 pull-right">
+                        <dl class="pull-left" >
+                            <dl><h4>Adresse de facturation </h4></dl>
+                            <dl>
+                                {{ commande.commande.facturation.nom }} {{ commande.commande.facturation.prenom }}
+                            </dl>
+                            <dl>
+                                {{ commande.commande.facturation.adresse }}
+                            </dl>
+                            <dl>
+                                {{ commande.commande.facturation.cp }} {{ commande.commande.facturation.ville }} - {{ commande.commande.facturation.pays }}
+                            </dl>
+                        </dl>
+
+                    </div>
+                     <form action="{{ path('validationCommande',{'id': commande.id}) }}" method="POST">
+                         <input name="token" type="hidden" value="{{ commande.commande.token }}" />
+                         <input name="totalTTC" type="hidden" value="{{ commande.commande.totalTTC }}" />
+                         <input name="date" type="hidden" value="{{ commande.date|date('dmyhms') }}" />
+                         <div class="clearfix"></div>
+                         <button type="submit" class="btn btn-success pull-right">Payer</button>
+                     </form>
+
+
+
+
+                <a href="{{ path('livraison') }}" class="btn btn-primary">Retour </a>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+
+

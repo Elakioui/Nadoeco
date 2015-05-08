@@ -1,0 +1,15 @@
+villes:
+    path:     /villes/{cp}
+    defaults: { _controller: "NadoecoUtilisateurBundle:Utilisateurs:villes" }
+    options:
+        expose: true
+
+factures:
+    path:     /profile/factures
+    defaults: { _controller: "NadoecoUtilisateurBundle:Utilisateurs:factures" }
+
+facturesPDF:
+    path:     /profile/factures/pdf/{id}
+    defaults: { _controller: "NadoecoUtilisateurBundle:Utilisateurs:facturesPDF" }
+
+

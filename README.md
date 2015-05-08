@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Symfony Standard Edition
 ========================
 
@@ -67,3 +68,7 @@ Enjoy!
 [11]: http://symfony.com/doc/2.6/cookbook/logging/monolog.html
 [12]: http://symfony.com/doc/2.6/cookbook/assetic/asset_management.html
 [13]: http://symfony.com/doc/2.6/bundles/SensioGeneratorBundle/index.html
+=======
+# nadoeco
+E-commerce website
+>>>>>>> c7a25b4720d9e50914a2fdb7f4a5769655c3e3cc

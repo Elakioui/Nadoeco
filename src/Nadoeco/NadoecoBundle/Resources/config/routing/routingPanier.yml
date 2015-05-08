@@ -1,0 +1,24 @@
+panier:
+    path:     /
+    defaults: { _controller: NadoecoNadoecoBundle:Panier:panier }
+
+livraison:
+    path:     /livraison
+    defaults: { _controller: NadoecoNadoecoBundle:Panier:livraison }
+
+validation:
+    path:     /validation
+    defaults: { _controller: NadoecoNadoecoBundle:Panier:validation }
+
+ajouter:
+    path:     /ajouter/{id}
+    defaults: { _controller: NadoecoNadoecoBundle:Panier:ajouter }
+
+supprimer:
+    path:     /supprimer/{id}
+    defaults: { _controller: NadoecoNadoecoBundle:Panier:supprimer }
+
+utilisateurAdresseLivraison:
+    path:     /livraison/adresse/suppression/{id}
+    defaults: { _controller: NadoecoNadoecoBundle:Panier:adresseSuppression }
+

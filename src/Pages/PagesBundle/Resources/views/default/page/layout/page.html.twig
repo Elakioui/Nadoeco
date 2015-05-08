@@ -1,0 +1,13 @@
+{% extends '::layout/layout.html.twig' %}
+{% block body %}
+    <div class="container">
+            <div class="span12">
+                <div class="row">
+                    <h5> {{ page.titre }}</h5>
+                    <div> {{page.contenu|raw}}</div>
+
+                </div>
+            </div>
+    </div>
+{% endblock %}
+

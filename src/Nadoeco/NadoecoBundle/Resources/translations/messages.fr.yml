@@ -1,0 +1,5 @@
+title.add_livraison: 'Ajouter une nouvelle adresse'
+title.shipping_adress: 'Adresse de livraison | Adresses de livraisons'
+label.name: Nom
+text.hey: 'Bonjour !!!!'
+test: __test

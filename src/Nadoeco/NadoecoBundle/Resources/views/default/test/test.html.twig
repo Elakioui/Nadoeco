@@ -1,0 +1,13 @@
+{% extends '::layout/layout.html.twig' %}
+{% block body %}
+    <section>
+        <form method="post" action="{{ path('testform') }}">
+            {{ form(form) }}
+        </form>
+
+
+
+    </section>
+    {{ dump('produits') }}
+
+{% endblock body %}

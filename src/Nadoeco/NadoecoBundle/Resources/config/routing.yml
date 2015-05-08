@@ -1,0 +1,30 @@
+routingAdmin:
+    resource: "@NadoecoNadoecoBundle/Resources/config/routing/routingAdmin.yml"
+    prefix:   /admin
+
+routingCategoriesAdmin:
+    resource: "@NadoecoNadoecoBundle/Resources/config/routing/routingCategoriesAdmin.yml"
+    prefix:   /admin/categories
+
+routingProduitsAdmin:
+    resource: "@NadoecoNadoecoBundle/Resources/config/routing/routingProduitsAdmin.yml"
+    prefix:   /admin/produits
+
+routingCommandesAdmin:
+    resource: "@NadoecoNadoecoBundle/Resources/config/routing/routingCommandesAdmin.yml"
+    prefix:   /admin/commandes
+
+
+routingProduits:
+    resource: "@NadoecoNadoecoBundle/Resources/config/routing/routingProduits.yml"
+    prefix: /
+
+routingPanier:
+    resource: "@NadoecoNadoecoBundle/Resources/config/routing/routingPanier.yml"
+    prefix: /panier
+
+routingCommandes:
+    resource: "@NadoecoNadoecoBundle/Resources/config/routing/routingCommandes.yml"
+    prefix: /
+
+

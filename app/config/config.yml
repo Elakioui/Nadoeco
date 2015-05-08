@@ -5,7 +5,7 @@ imports:
 
 framework:
     #esi:             ~
-    #translator:      { fallback: "%locale%" }
+    translator:      { fallback: "%locale%" }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -22,8 +22,10 @@ framework:
     session:
         # handler_id set to null will use default session handler from php.ini
         handler_id:  ~
-    fragments:       ~
+    fragments: ~
     http_method_override: true
+
+
 
 # Twig Configuration
 twig:
@@ -62,12 +64,76 @@ doctrine:
 
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
-        auto_mapping: true
+        entity_managers:
+                    default:
+                        filters:
+                            softdeleteable:
+                                class: Gedmo\SoftDeleteable\Filter\SoftDeleteableFilter
+                                enabled: true
+                        auto_mapping: true
+                        mappings:
+                            gedmo_translatable:
+                                type: annotation
+                                prefix: Gedmo\Translatable\Entity
+                                dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translatable/Entity"
+                                alias: GedmoTranslatable # this one is optional and will default to the name set for the mapping
+                                is_bundle: false
+                            gedmo_translator:
+                                type: annotation
+                                prefix: Gedmo\Translator\Entity
+                                dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translator/Entity"
+                                alias: GedmoTranslator # this one is optional and will default to the name set for the mapping
+                                is_bundle: false
+                            gedmo_loggable:
+                                type: annotation
+                                prefix: Gedmo\Loggable\Entity
+                                dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Loggable/Entity"
+                                alias: GedmoLoggable # this one is optional and will default to the name set for the mapping
+                                is_bundle: false
+                            gedmo_tree:
+                                type: annotation
+                                prefix: Gedmo\Tree\Entity
+                                dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Tree/Entity"
+                                alias: GedmoTree # this one is optional and will default to the name set for the mapping
+                                is_bundle: false
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: "%mailer_transport%"
-    host:      "%mailer_host%"
+    transport:   "%mailer_transport%"
+    encryption:  "%mailer_encryption%"
+    host:        "%mailer_host%"
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+fos_user:
+    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+    firewall_name: main
+    user_class: Nadoeco\UtilisateurBundle\Entity\Utilisateur
+
+knp_paginator:
+    page_range: 5                      # default page range used in pagination control
+    default_options:
+        page_name: page                # page query parameter name
+        sort_field_name: sort          # sort field query parameter name
+        sort_direction_name: direction # sort direction query parameter name
+        distinct: true                 # ensure distinct results, useful when ORM queries are using GROUP BY statements
+    template:
+        pagination: KnpPaginatorBundle:Pagination:twitter_bootstrap_pagination.html.twig    # sliding pagination controls template
+        sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig # sort link template
+
+liip_imagine:
+    resolvers:
+       default:
+          web_path: ~
+
+    filter_sets:
+        cache: ~
+        produitThumb:
+            quality: 80
+            filters:
+                thumbnail: { size: [300, 150], mode: inset }
+        produit:
+            quality: 75
+            filters:
+                thumbnail: { size: [470, 310], mode: inset }

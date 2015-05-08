@@ -6,9 +6,17 @@ parameters:
     database_name: nadoecodb
     database_user: root
     database_password: admin
+
     mailer_transport: smtp
-    mailer_host: 127.0.0.1
-    mailer_user: null
-    mailer_password: null
-    locale: en
+    mailer_host: smtp.gmail.com
+    mailer_encryption: ssl
+    mailer_user: zouhaire.elakioui@gmail.com
+    mailer_password: zo-al20asr
+    locale: fr
     secret: ThisTokenIsNotSoSecretChangeIt
+twig:
+    globals:
+        telephone: '02 35 00 00 00'
+        fax: '02 35 00 00 00'
+        adresse: 'Paris 75 000 - 3 rue des jardins'
+        pathDefault: 'http://localhost/Nadoeco/web/'

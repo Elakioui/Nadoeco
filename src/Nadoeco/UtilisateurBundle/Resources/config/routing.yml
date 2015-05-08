@@ -1,0 +1,8 @@
+routingUtilisateurs:
+    resource: "@NadoecoUtilisateurBundle/Resources/config/routing/routingUtilisateurs.yml"
+    prefix:   /utilisateurs
+
+routingUtilisateursAdmin:
+    resource: "@NadoecoUtilisateurBundle/Resources/config/routing/routingUtilisateursAdmin.yml"
+    prefix:   /admin/utilisateurs
+

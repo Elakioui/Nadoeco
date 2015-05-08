@@ -1,0 +1,44 @@
+
+{% extends '::layout/layoutAdmin.html.twig' %}
+
+{% block body -%}
+    <h1>Liste de produits </h1>
+
+
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Prix</th>
+                <th>Disponible</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+
+                <td>{{ entity.nom }}</td>
+                <td>{{ entity.description }}</td>
+                <td>{{ entity.prix }}</td>
+                <td>{{ entity.disponible }}</td>
+                <td>
+                <ul>
+                        <a href="{{ path('produits_show', { 'id': entity.id }) }}"><i class="icon-book"></i></a>
+                        <a href="{{ path('produits_edit', { 'id': entity.id }) }}"><i class="icon-edit"></i></a>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('produits_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}
